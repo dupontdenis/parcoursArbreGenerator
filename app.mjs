@@ -10,10 +10,10 @@ function* search(node) {
   yield node;
 
   console.log("🔽 Appel récursif sur firstChild :", node.firstChild);
-  yield* search(node.firstChild);
+  yield* search(node.firstElementChild);
 
   console.log("➡️ Appel récursif sur nextSibling :", node.nextSibling);
-  yield* search(node.nextSibling);
+  yield* search(node.nextElementSibling);
 }
 
 // document.body.insertAdjacentHTML("beforeend", `<h1> the DOM`);
