@@ -24,12 +24,12 @@ for (let node of search(document.body)) {
   if (node.localName) nodes.push(node.localName);
 }
 
-document.body.insertAdjacentHTML(
-  "afterbegin",
-  `<p>Pensez à regarder la console</p>`
-);
+
 document.body.insertAdjacentHTML(
   "beforeend",
   `<p>${nodes.join("<span> </span>")}</p>`
 );
-
+document.body.insertAdjacentHTML(
+  "afterbegin",
+  `<p>Pensez à regarder la console</p>`
+);
