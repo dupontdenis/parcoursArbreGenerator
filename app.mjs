@@ -19,14 +19,12 @@ function* search(node) {
 // document.body.insertAdjacentHTML("beforeend", `<h1> the DOM`);
 const nodes = [];
 
-for (let node of search(document.querySelector("section")) {
+for (let node of search(document.body)) {
   console.log("📥 Node reçu dans le for...of :", node);
   if (node.localName) nodes.push(node.localName);
 }
-
 
 document.body.insertAdjacentHTML(
   "beforeend",
   `<p>${nodes.join("<span> </span>")}</p>`
 );
-
