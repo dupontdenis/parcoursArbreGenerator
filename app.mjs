@@ -6,22 +6,26 @@ function* search(node) {
     return;
   }
 
-  console.log("📤 Yield du node :", node);
-  yield node;
+  // On ne yield que les éléments HTML
+  if (node.nodeType === Node.ELEMENT_NODE) {
+    console.log("📤 Renvoi de l’élément :", node);
+    yield node;
+  } else {
+    console.log("⏭️ Node ignoré (pas un élément) :", node);
+  }
 
-  console.log("🔽 Appel récursif sur firstChild :", node.firstChild);
+  console.log("🔽 Appel récursif sur firstElementChild :", node.firstElementChild);
   yield* search(node.firstElementChild);
 
-  console.log("➡️ Appel récursif sur nextSibling :", node.nextSibling);
+  console.log("➡️ Appel récursif sur nextElementSibling :", node.nextElementSibling);
   yield* search(node.nextElementSibling);
 }
 
-// document.body.insertAdjacentHTML("beforeend", `<h1> the DOM`);
 const nodes = [];
 
 for (let node of search(document.body)) {
-  console.log("📥 Node reçu dans le for...of :", node);
-  if (node.localName) nodes.push(node.localName);
+  console.log("📥 Élément reçu dans le for...of :", node);
+  nodes.push(node.localName);
 }
 
 document.body.insertAdjacentHTML(
