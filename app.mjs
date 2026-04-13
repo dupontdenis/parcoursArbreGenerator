@@ -30,6 +30,6 @@ for (let node of search(document.querySelector("section"))) {
 
 document.body.insertAdjacentHTML(
   "beforeend",
-  `<h1>Ouvrez la console <h1>
-   <p>${nodes.join("<span> </span>")}</p>`
+  `<p>${nodes.join("<span> </span>")}</p>
+   <h1>Ouvrez la console </h1>`
 );
