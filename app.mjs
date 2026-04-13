@@ -23,7 +23,7 @@ function* search(node) {
 
 const nodes = [];
 
-for (let node of search(document.body)) {
+for (let node of search(document.querySelector("section")) {
   console.log("📥 Élément reçu dans le for...of :", node);
   nodes.push(node.localName);
 }
